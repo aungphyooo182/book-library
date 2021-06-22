@@ -1,0 +1,29 @@
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.btn-disable {
+  cursor: not-allowed;
+}
+
+.search-btn {
+  background: #0dcaf0;
+  width: 100%;
+  height: 56px;
+  padding: 0px 24px;
+  border: 1px solid grey;
+  border-radius: 30px;
+  color: white;
+}
+
+.load-more {
+  background: #198754;
+  width: 100%;
+  height: 56px;
+  padding: 0px 24px;
+  border: 1px solid grey;
+  border-radius: 30px;
+  color: white;
+}

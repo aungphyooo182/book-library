@@ -1,0 +1,20 @@
+input {
+  outline: none;
+  border: none;
+}
+
+.book-name,
+.author-name {
+  width: 100%;
+  height: 56px;
+  border: 1px solid grey;
+  border-radius: 30px;
+  padding: 0px 24px;
+}
+
+@media screen and (min-width: 375px) {
+  .book-name,
+  .author-name {
+    margin-bottom: 12px;
+  }
+}

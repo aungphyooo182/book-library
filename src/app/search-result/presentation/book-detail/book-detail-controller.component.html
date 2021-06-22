@@ -1,0 +1,8 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="detail-wrapper" *ngIf="!loading">
+  <app-text [class]="'book-title'">{{ book.name }}</app-text>
+  <app-image [src]="book.src" [class]="'book-image'"></app-image>
+  <app-text [class]="'book-author'">Author : {{ book.author }}</app-text>
+  <app-text [class]="'book-author'">Publisher : {{ book.publisher }}</app-text>
+  <app-text [class]="'book-author'">Status : {{ book.status }}</app-text>
+</div>

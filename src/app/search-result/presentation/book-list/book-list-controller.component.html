@@ -1,0 +1,14 @@
+<app-loading *ngIf="loading"></app-loading>
+<ng-container *ngIf="!loading">
+  <div class="booklist-wrapper">
+    <ng-container *ngFor="let item of list">
+      <div class="book">
+        <app-text [class]="'book-title'">{{ item.name }}</app-text>
+        <app-image [src]="item.src" [class]="'book-image'"></app-image>
+      </div>
+    </ng-container>
+  </div>
+  <div class="load-more">
+    <app-button [class]="'load-more'">Load more</app-button>
+  </div>
+</ng-container>

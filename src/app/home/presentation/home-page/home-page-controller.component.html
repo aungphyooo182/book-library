@@ -1,0 +1,26 @@
+<div class="home-page-wrapper">
+  <app-logo></app-logo>
+  <app-text [class]="'org-name'">Pages of life</app-text>
+
+  <div class="action-btn">
+    <app-input
+      [class]="'book-name'"
+      [hint]="bookNameHint"
+      [type]="'text'"
+      [control]="form.get('bookName')"
+    ></app-input>
+    <app-select
+      [class]="'author-name'"
+      [hint]="authorNameHint"
+      [type]="'text'"
+      (choseItem)="selectedAuthor($event)"
+    ></app-select>
+    <app-button
+      [class]="'search-btn'"
+      style="margin-top: 12px"
+      (btnClick)="search()"
+    >
+      <app-text>{{ searchBtnText }}</app-text>
+    </app-button>
+  </div>
+</div>

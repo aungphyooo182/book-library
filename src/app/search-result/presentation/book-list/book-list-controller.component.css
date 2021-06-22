@@ -1,0 +1,19 @@
+.booklist-wrapper {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book {
+  width: 50%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.load-more {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
