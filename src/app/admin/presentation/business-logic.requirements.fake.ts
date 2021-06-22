@@ -4,7 +4,13 @@ import { BusinessLogicRequirements } from "./business-logic.requirements";
 export class BusinessLogicRequirementsFake
   implements BusinessLogicRequirements
 {
+  registerBook(book): Observable<any> {
+    return of(true);
+  }
   getAllBooks(): Observable<any> {
+    return of(true);
+  }
+  getAlphabetBooks(alphabet): Observable<any> {
     return of(true);
   }
 }

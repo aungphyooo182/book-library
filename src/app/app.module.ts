@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeFeatureModule } from "./home/home.module";
 import { SearchResultFeatureModule } from "./search-result/search-result.module";
+import { AdminFeatureModule } from "./admin/admin.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { SearchResultFeatureModule } from "./search-result/search-result.module"
     AppRoutingModule,
     HomeFeatureModule,
     SearchResultFeatureModule,
+    AdminFeatureModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

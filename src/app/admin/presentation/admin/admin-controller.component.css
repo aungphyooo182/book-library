@@ -1,0 +1,15 @@
+.admin-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-div {
+  max-width: 310px;
+  padding: 30px;
+  border-radius: 30px;
+  height: auto;
+  background-color: #0f5132;
+}

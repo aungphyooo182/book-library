@@ -1,0 +1,18 @@
+<div class="admin-wrapper">
+  <form (keyup.enter)="$event.preventDefault(); onLogin($event)">
+    <div class="form-div">
+      <app-input
+        [class]="'book-name'"
+        [hint]="usernameHint"
+        [type]="'text'"
+        [control]="form.get('username')"
+      ></app-input>
+      <app-input
+        [class]="'book-name'"
+        [hint]="passwordHint"
+        [type]="'text'"
+        [control]="form.get('password')"
+      ></app-input>
+    </div>
+  </form>
+</div>
