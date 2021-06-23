@@ -2,7 +2,6 @@ import { BusinessLogicRequirements } from "../presentation/business-logic.requir
 import { NgModule } from "@angular/core";
 import { DataRequirementsInjectionToken } from "./data.requirements";
 import { DataFacade } from "../data/data.facade";
-import { GetAllBooksUseCase } from "./use-cases/get-all-books.use-case";
 import { Observable } from "rxjs";
 
 @NgModule({
@@ -16,9 +15,5 @@ import { Observable } from "rxjs";
   ],
 })
 export class BusinessLogicFacade implements BusinessLogicRequirements {
-  constructor(private getAllBooksUseCase: GetAllBooksUseCase) {}
-
-  getAllBooks(): Observable<any> {
-    return this.getAllBooksUseCase.run();
-  }
+  constructor() {}
 }

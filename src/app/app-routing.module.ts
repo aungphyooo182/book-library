@@ -13,7 +13,7 @@ const routes: Routes = [
     component: HomePageControllerComponent,
   },
   {
-    path: "detail",
+    path: "detail/:id",
     component: BookDetailControllerComponent,
   },
   {

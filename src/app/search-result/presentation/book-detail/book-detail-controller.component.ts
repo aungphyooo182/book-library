@@ -1,4 +1,5 @@
 import { Inject, Component } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import {
   BusinessLogicRequirements,
   BusinessRequirementsInjectionToken,
@@ -14,7 +15,8 @@ export class BookDetailControllerComponent {
   constructor(
     @Inject(BusinessRequirementsInjectionToken)
     private business: BusinessLogicRequirements,
-    private store: BookDetailStore
+    private store: BookDetailStore,
+    private route: ActivatedRoute
   ) {}
 
   public testsrc =
@@ -27,11 +29,28 @@ export class BookDetailControllerComponent {
     status: "available",
   };
   public loading = false;
+  public bookId;
 
   ngOnInit() {
     this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
+    this.route.params.subscribe((params) => {
+      this.bookId = params.id;
+    });
+    this.getBook();
+  }
+
+  getBook() {
+    this.loading = true;
+    this.business.getBook(this.bookId).subscribe(
+      (data) => {
+        console.log(data);
+        this.book = data;
+        this.loading = false;
+      },
+      (err) => {
+        console.error(err);
+        this.loading = false;
+      }
+    );
   }
 }

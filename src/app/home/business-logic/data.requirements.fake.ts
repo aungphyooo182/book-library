@@ -1,8 +1,4 @@
 import { Observable, of } from "rxjs";
 import { DataRequirements } from "./data.requirements";
 
-export class DataRequirementsFake implements DataRequirements {
-  getAllBooks(): Observable<any> {
-    return of(true);
-  }
-}
+export class DataRequirementsFake implements DataRequirements {}

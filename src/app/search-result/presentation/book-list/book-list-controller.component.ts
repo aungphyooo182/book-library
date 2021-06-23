@@ -1,4 +1,5 @@
 import { Inject, Component } from "@angular/core";
+import { Router } from "@angular/router";
 import {
   BusinessLogicRequirements,
   BusinessRequirementsInjectionToken,
@@ -14,7 +15,8 @@ export class BookListControllerComponent {
   constructor(
     @Inject(BusinessRequirementsInjectionToken)
     private business: BusinessLogicRequirements,
-    private store: BookListStore
+    private store: BookListStore,
+    private router: Router
   ) {}
 
   public list = [];
@@ -22,20 +24,31 @@ export class BookListControllerComponent {
   public testsrc =
     "https://secureservercdn.net/72.167.242.48/vb6.3c0.myftpupload.com/wp-content/uploads/2021/05/JoeBiden-205x273.png";
   public loading = false;
+
+  public availableText = "ငှားရမ်းနိုင်ပါသည်";
+  public nonAvailableText = "အခြားတစ်ယောက်ငှားထားပါသည်";
+  public loadmoreText = "ထပ်ကြည့်မည်";
+
   ngOnInit() {
-    for (var i = 0; i <= 5; i++) {
-      var book = {
-        name: "name" + i,
-        src: this.testsrc,
-        author: "author",
-        publisher: "publisher",
-        status: "available",
-      };
-      this.list.push(book);
-    }
-    this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
+    this.getAllBooks();
+  }
+
+  getAllBooks() {
+    this.business.getAllBooks().subscribe(
+      (data) => {
+        console.log(data);
+        this.list = data;
+        this.loading = false;
+      },
+      (err) => {
+        console.error(err);
+        this.loading = false;
+      }
+    );
+  }
+
+  showDetail(id) {
+    console.log(id);
+    this.router.navigateByUrl(`/detail/${id}`);
   }
 }

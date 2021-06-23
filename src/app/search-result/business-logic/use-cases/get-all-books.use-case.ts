@@ -1,4 +1,5 @@
 import { Inject, Injectable } from "@angular/core";
+import { of } from "rxjs";
 import {
   DataRequirements,
   DataRequirementsInjectionToken,
@@ -13,6 +14,7 @@ export class GetAllBooksUseCase {
   ) {}
 
   run() {
+    // return of(true);
     return this.data.getAllBooks();
   }
 }

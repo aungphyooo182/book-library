@@ -2,13 +2,18 @@
 <ng-container *ngIf="!loading">
   <div class="booklist-wrapper">
     <ng-container *ngFor="let item of list">
-      <div class="book">
-        <app-text [class]="'book-title'">{{ item.name }}</app-text>
+      <div class="book" (click)="showDetail(item._id)">
         <app-image [src]="item.src" [class]="'book-image'"></app-image>
+        <app-text [class]="'book-title'">{{ item.name }}</app-text>
+        <app-text [class]="'book-status'"
+          >({{
+            item.status == available ? availableText : nonAvailableText
+          }})</app-text
+        >
       </div>
     </ng-container>
   </div>
-  <div class="load-more">
-    <app-button [class]="'load-more'">Load more</app-button>
+  <div class="load-more" *ngIf="!loading">
+    <app-button [class]="'load-more'">{{ loadmoreText }}</app-button>
   </div>
 </ng-container>
