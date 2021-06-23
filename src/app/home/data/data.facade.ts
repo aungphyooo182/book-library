@@ -8,4 +8,7 @@ import { BookService } from "./api-services/book.service";
 })
 export class DataFacade implements DataRequirements {
   constructor(private bookApi: BookService) {}
+  getAuthorList() {
+    return this.bookApi.getAuthorList();
+  }
 }

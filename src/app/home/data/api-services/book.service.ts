@@ -8,4 +8,15 @@ import { environment } from "src/environments/environment";
 })
 export class BookService {
   constructor(private http: HttpClient) {}
+  public baseUrl = environment.baseUrl;
+
+  getAuthorList() {
+    let url = this.baseUrl + "/api/book/author/all";
+    return this.http.get(url).pipe(
+      map((res: Response) => {
+        let result = res;
+        return result;
+      })
+    );
+  }
 }

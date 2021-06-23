@@ -1,5 +1,5 @@
 import { Inject, Component } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   BusinessLogicRequirements,
   BusinessRequirementsInjectionToken,
@@ -16,7 +16,8 @@ export class BookListControllerComponent {
     @Inject(BusinessRequirementsInjectionToken)
     private business: BusinessLogicRequirements,
     private store: BookListStore,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   public list = [];
@@ -28,9 +29,64 @@ export class BookListControllerComponent {
   public availableText = "ငှားရမ်းနိုင်ပါသည်";
   public nonAvailableText = "အခြားတစ်ယောက်ငှားထားပါသည်";
   public loadmoreText = "ထပ်ကြည့်မည်";
+  public author;
+  public name;
 
   ngOnInit() {
-    this.getAllBooks();
+    this.route.queryParams.subscribe((params) => {
+      this.author = params.author;
+      this.name = params.name;
+      console.log(params);
+      console.log(this.author, this.name);
+      if (this.author || this.name) this.searchBooks();
+      else this.getAllBooks();
+    });
+  }
+
+  searchBooks() {
+    if (this.author && this.name) this.searchBooksByDetails();
+    else if (this.author) this.searchBooksByAuthor();
+    else this.searchBooksByName();
+  }
+
+  searchBooksByAuthor() {
+    this.business.getBooksByAuthor(this.author).subscribe(
+      (data) => {
+        console.log(data);
+        this.list = data;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  searchBooksByName() {
+    this.business.getBooksByName(this.name).subscribe(
+      (data) => {
+        console.log(data);
+        this.list = data;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  searchBooksByDetails() {
+    var obj = {
+      author: this.author,
+      name: this.name,
+    };
+    this.business.getBookByDetail(obj).subscribe(
+      (data) => {
+        console.log(data);
+        this.list = data;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   getAllBooks() {

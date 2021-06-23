@@ -29,4 +29,39 @@ export class BookService {
       })
     );
   }
+
+  getBooksByAuthor(author) {
+    let url = this.baseUrl + "/api/book/author/" + author;
+    return this.http.get(url).pipe(
+      map((res: Response) => {
+        let result = res;
+        return result;
+      })
+    );
+  }
+
+  getBooksByName(name) {
+    let url = this.baseUrl + "/api/book/name/" + name;
+    return this.http.get(url).pipe(
+      map((res: Response) => {
+        let result = res;
+        return result;
+      })
+    );
+  }
+
+  getBookByDetail(obj) {
+    let url =
+      this.baseUrl +
+      "/api/book/search/detail?author=" +
+      obj.author +
+      "&name=" +
+      obj.name;
+    return this.http.get(url).pipe(
+      map((res: Response) => {
+        let result = res;
+        return result;
+      })
+    );
+  }
 }

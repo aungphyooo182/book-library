@@ -31,12 +31,14 @@ export class HomePageControllerComponent {
 
   public bookName;
   public authorName;
+  public authorList = [];
 
   ngOnInit() {
     this.form.valueChanges.subscribe((value) => {
       //   console.log(value.bookName, value.authorName);
       this.bookName = value.bookName;
     });
+    this.getAuthorList();
   }
 
   selectedAuthor(item) {
@@ -45,12 +47,29 @@ export class HomePageControllerComponent {
   }
 
   search() {
-    if (this.bookName && this.authorName) {
-      this.router.navigateByUrl("/detail");
-    } else if (this.authorName || this.bookName) {
-      this.router.navigateByUrl("/list");
+    if (this.authorName || this.bookName) {
+      if (this.authorName && this.bookName)
+        this.router.navigateByUrl(
+          `/list?author=${this.authorName}&name=${this.bookName}`
+        );
+      else if (this.authorName)
+        this.router.navigateByUrl(`/list?author=${this.authorName}`);
+      else if (this.bookName)
+        this.router.navigateByUrl(`/list?name=${this.bookName}`);
     } else {
       console.log(this.bookName, this.authorName);
     }
+  }
+
+  getAuthorList() {
+    this.business.getAuthorList().subscribe(
+      (data) => {
+        console.log(data);
+        this.authorList = data;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 }

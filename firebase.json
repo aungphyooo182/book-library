@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "pages-of-life",
+      "public": "dist/pages-of-life",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

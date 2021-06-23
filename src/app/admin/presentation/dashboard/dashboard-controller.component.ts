@@ -25,7 +25,7 @@ export class DashboardControllerComponent {
 
   public form = this.fb.group({
     name: this.fb.control("", [Validators.required]),
-    src: this.fb.control("", [Validators.required]),
+    src: this.fb.control(""),
     author: this.fb.control("", [Validators.required]),
     publisher: this.fb.control("", [Validators.required]),
     alphabet: this.fb.control("", [Validators.required]),
@@ -85,6 +85,10 @@ export class DashboardControllerComponent {
     if (this.form.errors) {
     } else {
       console.log(this.bookInfo);
+      this.bookInfo.status = 1;
+      this.bookInfo.src = this.bookInfo.src
+        ? this.bookInfo.src
+        : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuS70_V8XORGPmjOWCTXDh1taMvtvv1XO9A&usqp=CAU";
       this.getAllBooks();
     }
   }

@@ -6,4 +6,5 @@ export class BookModel {
   alphabet: string;
   shelfNo: number;
   publisher: string;
+  status: number;
 }

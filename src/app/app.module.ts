@@ -6,11 +6,13 @@ import { AppComponent } from "./app.component";
 import { HomeFeatureModule } from "./home/home.module";
 import { SearchResultFeatureModule } from "./search-result/search-result.module";
 import { AdminFeatureModule } from "./admin/admin.module";
+import { GlobalComponentsModule } from "./global-components/global-components.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    GlobalComponentsModule,
     AppRoutingModule,
     HomeFeatureModule,
     SearchResultFeatureModule,

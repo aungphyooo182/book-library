@@ -21,15 +21,15 @@ export class BookDetailControllerComponent {
 
   public testsrc =
     "https://secureservercdn.net/72.167.242.48/vb6.3c0.myftpupload.com/wp-content/uploads/2021/05/JoeBiden-205x273.png";
-  public book = {
-    name: "name" + 1,
-    src: this.testsrc,
-    author: "author",
-    publisher: "publisher",
-    status: "available",
-  };
+  public book;
   public loading = false;
   public bookId;
+
+  public author = "စာရေးသူ";
+  public publisher = "စာအုပ်တိုက်";
+  public status = "ငှားရမ်းနိုင်မှုအခြေအနေ";
+  public yes = "ငှားရမ်းနိုင်ပါသည်";
+  public no = "တခြားသူမှ ငှားရမ်းထားပါသည်";
 
   ngOnInit() {
     this.loading = true;

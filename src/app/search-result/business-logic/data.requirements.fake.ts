@@ -8,4 +8,13 @@ export class DataRequirementsFake implements DataRequirements {
   getBook(id): Observable<any> {
     return of(true);
   }
+  getBooksByAuthor(author): Observable<any> {
+    return of(true);
+  }
+  getBooksByName(name): Observable<any> {
+    return of(true);
+  }
+  getBookByDetail(obj): Observable<any> {
+    return of(true);
+  }
 }

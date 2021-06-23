@@ -1,7 +1,4 @@
 <div class="home-page-wrapper">
-  <app-logo></app-logo>
-  <app-text [class]="'org-name'">Pages of life</app-text>
-
   <div class="action-btn">
     <app-input
       [class]="'book-name'"
@@ -13,6 +10,7 @@
       [class]="'author-name'"
       [hint]="authorNameHint"
       [type]="'text'"
+      [list]="authorList"
       (choseItem)="selectedAuthor($event)"
     ></app-select>
     <app-button

@@ -4,16 +4,16 @@
     <ng-container *ngFor="let item of list">
       <div class="book" (click)="showDetail(item._id)">
         <app-image [src]="item.src" [class]="'book-image'"></app-image>
-        <app-text [class]="'book-title'">{{ item.name }}</app-text>
+        <app-text [class]="'book-title'" style="margin-top: 12px">{{
+          item.name
+        }}</app-text>
         <app-text [class]="'book-status'"
-          >({{
-            item.status == available ? availableText : nonAvailableText
-          }})</app-text
+          >({{ item.status == 1 ? availableText : nonAvailableText }})</app-text
         >
       </div>
     </ng-container>
   </div>
-  <div class="load-more" *ngIf="!loading">
+  <!-- <div class="load-more" *ngIf="!loading">
     <app-button [class]="'load-more'">{{ loadmoreText }}</app-button>
-  </div>
+  </div> -->
 </ng-container>
