@@ -34,6 +34,8 @@ export class BookListControllerComponent {
   public loadmoreText = "ထပ်ကြည့်မည်";
   public backText = "နောက်သို့ပြန်သွားမည်";
   public showDetailText = "အသေးစိတ်ကြည့်ရန်";
+  public noResultText = "ရှာမတွေ့ပါ";
+  public noResult = false;
   public author;
   public name;
 
@@ -65,6 +67,8 @@ export class BookListControllerComponent {
       },
       (err) => {
         console.log(err);
+        this.loading = false;
+        this.noResult = true;
       }
     );
   }
@@ -78,6 +82,8 @@ export class BookListControllerComponent {
       },
       (err) => {
         console.log(err);
+        this.noResult = true;
+        this.loading = false;
       }
     );
   }
@@ -95,6 +101,8 @@ export class BookListControllerComponent {
       },
       (err) => {
         console.error(err);
+        this.noResult = true;
+        this.loading = false;
       }
     );
   }
@@ -109,6 +117,7 @@ export class BookListControllerComponent {
       },
       (err) => {
         console.error(err);
+        this.noResult = true;
         this.loading = false;
       }
     );

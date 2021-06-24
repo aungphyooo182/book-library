@@ -23,3 +23,7 @@
     <app-button [class]="'load-more'">{{ loadmoreText }}</app-button>
   </div> -->
 </ng-container>
+
+<div class="no-result" *ngIf="noResult && !loading">
+  <app-text [class]="'no-result'">{{ noResultText }}</app-text>
+</div>
