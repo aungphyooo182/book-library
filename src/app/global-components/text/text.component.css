@@ -4,6 +4,14 @@
   margin-left: 12px;
 }
 
+.admin {
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 12px;
+  font-style: italic;
+  color: #198754;
+}
+
 .book-title {
   font-size: 12px;
   font-weight: bold;
