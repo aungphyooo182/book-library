@@ -116,4 +116,8 @@ export class DashboardControllerComponent {
       }
     );
   }
+
+  edit() {
+    this.router.navigateByUrl("/edit");
+  }
 }
