@@ -20,5 +20,12 @@
     >
       <app-text>{{ searchBtnText }}</app-text>
     </app-button>
+    <app-button
+      [class]="'search-btn'"
+      style="margin-top: 12px"
+      (btnClick)="list()"
+    >
+      <app-text>{{ listBtnText }}</app-text>
+    </app-button>
   </div>
 </div>

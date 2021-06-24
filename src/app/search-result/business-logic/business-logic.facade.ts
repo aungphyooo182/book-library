@@ -8,6 +8,7 @@ import { GetBookUseCase } from "./use-cases/get-book.use-case";
 import { GetBooksByAuthorUseCase } from "./use-cases/get-books-by-author.use-case";
 import { GetBooksByNameUseCase } from "./use-cases/get-books-by-name.use-case";
 import { GetBooksByDetailUseCase } from "./use-cases/get-books-by-detail.use-case";
+import { BookMapper } from "./mappers/book.mapper";
 
 @NgModule({
   imports: [DataFacade],
@@ -17,6 +18,7 @@ import { GetBooksByDetailUseCase } from "./use-cases/get-books-by-detail.use-cas
       provide: DataRequirementsInjectionToken,
       useClass: DataFacade,
     },
+    BookMapper,
   ],
 })
 export class BusinessLogicFacade implements BusinessLogicRequirements {

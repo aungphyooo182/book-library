@@ -5,8 +5,8 @@
   </div>
   <div *ngIf="showBox" class="item-box-wrapper">
     <ng-container *ngFor="let item of list">
-      <div class="item-box" (click)="selectItem(item)">
-        <app-text [class]="'item'">{{ item }}</app-text>
+      <div class="item-box" (click)="selectItem(item.author)">
+        <app-text [class]="'item'">{{ item.author }}</app-text>
       </div>
     </ng-container>
   </div>

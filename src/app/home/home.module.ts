@@ -5,6 +5,8 @@ import { SharedComponentsModule } from "./presentation/shared-components/shared-
 import { BusinessLogicFacade } from "./business-logic/business-logic.facade";
 import { BusinessRequirementsInjectionToken } from "./presentation/business-logic.requirements";
 import { HomePageModule } from "./presentation/home-page/home-page.module";
+import { SharedService } from "../lib/shared.service";
+import { AuthorMapper } from "./business-logic/mappers/author.mapper";
 
 @NgModule({
   imports: [
@@ -19,6 +21,8 @@ import { HomePageModule } from "./presentation/home-page/home-page.module";
       provide: BusinessRequirementsInjectionToken,
       useClass: BusinessLogicFacade,
     },
+    SharedService,
+    AuthorMapper,
   ],
   exports: [],
 })

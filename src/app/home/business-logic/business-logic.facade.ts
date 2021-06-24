@@ -4,6 +4,7 @@ import { DataRequirementsInjectionToken } from "./data.requirements";
 import { DataFacade } from "../data/data.facade";
 import { Observable } from "rxjs";
 import { GetAuthorListUseCase } from "./use-cases/get-author-list.use-case";
+import { AuthorMapper } from "./mappers/author.mapper";
 
 @NgModule({
   imports: [DataFacade],
@@ -13,6 +14,7 @@ import { GetAuthorListUseCase } from "./use-cases/get-author-list.use-case";
       provide: DataRequirementsInjectionToken,
       useClass: DataFacade,
     },
+    AuthorMapper,
   ],
 })
 export class BusinessLogicFacade implements BusinessLogicRequirements {

@@ -7,4 +7,5 @@ export class BookModel {
   shelfNo: number;
   publisher: string;
   status: number;
+  id: string;
 }

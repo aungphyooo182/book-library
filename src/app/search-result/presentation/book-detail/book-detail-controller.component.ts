@@ -1,5 +1,5 @@
 import { Inject, Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   BusinessLogicRequirements,
   BusinessRequirementsInjectionToken,
@@ -16,7 +16,8 @@ export class BookDetailControllerComponent {
     @Inject(BusinessRequirementsInjectionToken)
     private business: BusinessLogicRequirements,
     private store: BookDetailStore,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   public testsrc =
@@ -31,6 +32,8 @@ export class BookDetailControllerComponent {
   public yes = "ငှားရမ်းနိုင်ပါသည်";
   public no = "တခြားသူမှ ငှားရမ်းထားပါသည်";
 
+  public listText = "စာအုပ်အားလုံး";
+
   ngOnInit() {
     this.loading = true;
     this.route.params.subscribe((params) => {
@@ -44,7 +47,7 @@ export class BookDetailControllerComponent {
     this.business.getBook(this.bookId).subscribe(
       (data) => {
         console.log(data);
-        this.book = data;
+        this.book = data[0];
         this.loading = false;
       },
       (err) => {
@@ -52,5 +55,9 @@ export class BookDetailControllerComponent {
         this.loading = false;
       }
     );
+  }
+
+  list() {
+    this.router.navigateByUrl("/list");
   }
 }

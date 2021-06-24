@@ -85,6 +85,8 @@ export class DashboardControllerComponent {
     if (this.form.errors) {
     } else {
       console.log(this.bookInfo);
+      this.bookInfo.author = unescape(encodeURIComponent(this.bookInfo.author));
+      this.bookInfo.name = unescape(encodeURIComponent(this.bookInfo.name));
       this.bookInfo.status = 1;
       this.bookInfo.src = this.bookInfo.src
         ? this.bookInfo.src

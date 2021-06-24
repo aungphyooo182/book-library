@@ -24,7 +24,7 @@ export class BookService {
     let url = this.baseUrl + "/api/book/" + id;
     return this.http.get(url).pipe(
       map((res: Response) => {
-        let result = res;
+        let result = [res];
         return result;
       })
     );

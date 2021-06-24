@@ -1,6 +1,7 @@
 import { Inject, Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { SharedService } from "src/app/lib/shared.service";
 import {
   BusinessLogicRequirements,
   BusinessRequirementsInjectionToken,
@@ -18,7 +19,8 @@ export class HomePageControllerComponent {
     private business: BusinessLogicRequirements,
     private store: HomePageStore,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private shared: SharedService
   ) {}
 
   public form = this.fb.group({
@@ -28,6 +30,7 @@ export class HomePageControllerComponent {
   public bookNameHint = "စာအုပ်အမည်";
   public authorNameHint = "စာရေးသူအမည်";
   public searchBtnText = "ရှာမည်";
+  public listBtnText = "စာအုပ်အားလုံးပြပါ";
 
   public bookName;
   public authorName;
@@ -37,13 +40,17 @@ export class HomePageControllerComponent {
     this.form.valueChanges.subscribe((value) => {
       //   console.log(value.bookName, value.authorName);
       this.bookName = value.bookName;
+      this.shared.setName(unescape(encodeURIComponent(this.bookName)));
     });
     this.getAuthorList();
+    localStorage.removeItem("author");
+    localStorage.removeItem("name");
   }
 
   selectedAuthor(item) {
     this.authorName = item;
     this.authorNameHint = item;
+    this.shared.setAuthor(unescape(encodeURIComponent(this.authorName)));
   }
 
   search() {
@@ -59,6 +66,10 @@ export class HomePageControllerComponent {
     } else {
       console.log(this.bookName, this.authorName);
     }
+  }
+
+  list() {
+    this.router.navigateByUrl(`/list`);
   }
 
   getAuthorList() {

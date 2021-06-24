@@ -27,3 +27,11 @@ button {
   border-radius: 30px;
   color: white;
 }
+
+.back {
+  border: 1px solid #198754;
+  height: 56px;
+  padding: 0px 24px;
+  border-radius: 30px;
+  color: black;
+}
