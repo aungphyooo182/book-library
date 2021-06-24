@@ -39,6 +39,8 @@ export class AdminControllerComponent {
   onLogin(e) {
     console.log("login");
     if (this.admin.username == "admin" && this.admin.password == "password") {
+      localStorage.setItem("admin", btoa(this.admin.username));
+      localStorage.setItem("password", btoa(this.admin.password));
       this.router.navigateByUrl("/dashboard");
     }
   }

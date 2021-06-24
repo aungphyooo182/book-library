@@ -1,0 +1,20 @@
+<table id="book-table">
+  <th>စဥ်</th>
+  <th>စာအုပ်အမည်</th>
+  <th>စာရေးသူ</th>
+  <th>စာအုပ်တိုက်အမည်</th>
+  <th>တိုက်ပိုင်အမှတ်</th>
+  <th>စင်အမှတ်</th>
+  <th>ငှားရမ်းထားမှု</th>
+  <th>ပြင်ဆင်မည်</th>
+  <tr *ngFor="let book of list; let index = index">
+    <td>{{ index + 1 }}</td>
+    <td>{{ book.name }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.publisher }}</td>
+    <td>{{ book.libraryNo }}</td>
+    <td>{{ book.shelfNo }}</td>
+    <td>{{ book.status == 1 ? "မရှိ" : "ရှိ" }}</td>
+    <td (click)="edit(book.id)">ပြင်ဆင်မည်</td>
+  </tr>
+</table>

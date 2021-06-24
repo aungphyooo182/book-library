@@ -13,4 +13,10 @@ export class BusinessLogicRequirementsFake
   getAlphabetBooks(alphabet): Observable<any> {
     return of(true);
   }
+  getBook(id): Observable<any> {
+    return of(true);
+  }
+  updateBook(book): Observable<any> {
+    return of(true);
+  }
 }

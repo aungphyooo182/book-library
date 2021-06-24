@@ -6,6 +6,9 @@ import { RegisterBookUseCase } from "./use-cases/register-book.use-case";
 import { Observable } from "rxjs";
 import { GetAllBooksUseCase } from "./use-cases/get-all-books.use-case";
 import { GetAlphabetBooksUseCase } from "./use-cases/get-alphabet-books.use-case";
+import { BookMapper } from "./mappers/book.mapper";
+import { GetBookUseCase } from "./use-cases/get-book.use-case";
+import { UpdateBookUseCase } from "./use-cases/update-book.use-case";
 
 @NgModule({
   imports: [DataFacade],
@@ -15,13 +18,16 @@ import { GetAlphabetBooksUseCase } from "./use-cases/get-alphabet-books.use-case
       provide: DataRequirementsInjectionToken,
       useClass: DataFacade,
     },
+    BookMapper,
   ],
 })
 export class BusinessLogicFacade implements BusinessLogicRequirements {
   constructor(
     private registerBookUseCase: RegisterBookUseCase,
     private getAllBooksUseCase: GetAllBooksUseCase,
-    private getAlphabetBooksUseCase: GetAlphabetBooksUseCase
+    private getAlphabetBooksUseCase: GetAlphabetBooksUseCase,
+    private getBookUseCase: GetBookUseCase,
+    private updateBookUseCase: UpdateBookUseCase
   ) {}
 
   registerBook(book): Observable<any> {
@@ -34,5 +40,12 @@ export class BusinessLogicFacade implements BusinessLogicRequirements {
 
   getAlphabetBooks(alphabet): Observable<any> {
     return this.getAlphabetBooksUseCase.run(alphabet);
+  }
+
+  getBook(id): Observable<any> {
+    return this.getBookUseCase.run(id);
+  }
+  updateBook(book): Observable<any> {
+    return this.updateBookUseCase.run(book);
   }
 }

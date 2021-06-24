@@ -1,0 +1,48 @@
+<div class="dashboard-wrapper">
+  <form (keyup.enter)="$event.preventDefault(); submit()">
+    <div class="form-div">
+      <label for="">name</label>
+      <app-input
+        [class]="'book-info'"
+        [type]="'text'"
+        [value]="book.name"
+        [control]="form.get('name')"
+      ></app-input>
+      <label for="">src</label>
+      <app-input
+        [class]="'book-info'"
+        [value]="book.src"
+        [type]="'text'"
+        [control]="form.get('src')"
+      ></app-input>
+      <label for="">author</label>
+      <app-input
+        [class]="'book-info'"
+        [value]="book.author"
+        [type]="'text'"
+        [control]="form.get('author')"
+      ></app-input>
+      <label for="">publisher</label>
+      <app-input
+        [class]="'book-info'"
+        [value]="book.publisher"
+        [type]="'text'"
+        [control]="form.get('publisher')"
+      ></app-input>
+      <label for="">shelfNo</label>
+      <app-input
+        [class]="'book-info'"
+        [value]="book.shelfNo"
+        [type]="'text'"
+        [control]="form.get('shelfNo')"
+      ></app-input>
+      <label for="">status</label>
+      <app-input
+        [class]="'book-info'"
+        [value]="book.status"
+        [type]="'text'"
+        [control]="form.get('status')"
+      ></app-input>
+    </div>
+  </form>
+</div>

@@ -7,6 +7,8 @@ import { BusinessRequirementsInjectionToken } from "./presentation/business-logi
 import { AdminModule } from "./presentation/admin/admin.module";
 import { DashboardModule } from "./presentation/dashboard/dashboard.module";
 import { BookService } from "./data/api-services/book.service";
+import { EditBookModule } from "./presentation/edit-book/edit-book.module";
+import { BookMapper } from "./business-logic/mappers/book.mapper";
 
 @NgModule({
   imports: [
@@ -16,6 +18,7 @@ import { BookService } from "./data/api-services/book.service";
     SharedComponentsModule,
     AdminModule,
     DashboardModule,
+    EditBookModule,
   ],
   providers: [
     {
@@ -23,6 +26,7 @@ import { BookService } from "./data/api-services/book.service";
       useClass: BusinessLogicFacade,
     },
     BookService,
+    BookMapper,
   ],
   exports: [],
 })

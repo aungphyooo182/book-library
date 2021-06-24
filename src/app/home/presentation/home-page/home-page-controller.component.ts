@@ -76,7 +76,7 @@ export class HomePageControllerComponent {
     this.business.getAuthorList().subscribe(
       (data) => {
         console.log(data);
-        this.authorList = data;
+        this.authorList = data.sort();
       },
       (err) => {
         console.error(err);

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AdminControllerComponent } from "./admin/presentation/admin/admin-controller.component";
 import { DashboardControllerComponent } from "./admin/presentation/dashboard/dashboard-controller.component";
+import { EditBookControllerComponent } from "./admin/presentation/edit-book/edit-book-controller.component";
 import { HomePageControllerComponent } from "./home/presentation/home-page/home-page-controller.component";
 import { BookDetailControllerComponent } from "./search-result/presentation/book-detail/book-detail-controller.component";
 import { BookListControllerComponent } from "./search-result/presentation/book-list/book-list-controller.component";
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardControllerComponent,
+  },
+  {
+    path: "edit",
+    component: EditBookControllerComponent,
   },
 ];
 

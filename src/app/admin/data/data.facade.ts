@@ -18,4 +18,10 @@ export class DataFacade implements DataRequirements {
   getAlphabetBooks(alphabet) {
     return this.bookApi.getAlphabetBooks(alphabet);
   }
+  getBook(id) {
+    return this.bookApi.getBook(id);
+  }
+  updateBook(book) {
+    return this.bookApi.updateBook(book);
+  }
 }

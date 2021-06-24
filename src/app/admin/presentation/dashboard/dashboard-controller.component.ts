@@ -41,6 +41,9 @@ export class DashboardControllerComponent {
   public keyword = new KeywordModel();
 
   ngOnInit() {
+    if (!localStorage.getItem("admin") && !localStorage.getItem("password")) {
+      this.router.navigateByUrl("");
+    }
     this.form.valueChanges.subscribe((value) => {
       this.bookInfo = value;
     });
