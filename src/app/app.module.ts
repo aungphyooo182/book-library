@@ -7,6 +7,7 @@ import { HomeFeatureModule } from "./home/home.module";
 import { SearchResultFeatureModule } from "./search-result/search-result.module";
 import { AdminFeatureModule } from "./admin/admin.module";
 import { GlobalComponentsModule } from "./global-components/global-components.module";
+import { PdfViewerModule } from "ng2-pdf-viewer";
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { GlobalComponentsModule } from "./global-components/global-components.mo
     BrowserModule,
     GlobalComponentsModule,
     AppRoutingModule,
+    // PdfViewerModule,
     HomeFeatureModule,
     SearchResultFeatureModule,
     AdminFeatureModule,
