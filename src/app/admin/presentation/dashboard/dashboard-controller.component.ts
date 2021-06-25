@@ -42,7 +42,7 @@ export class DashboardControllerComponent {
 
   ngOnInit() {
     if (!localStorage.getItem("admin") && !localStorage.getItem("password")) {
-      this.router.navigateByUrl("");
+      this.router.navigateByUrl("/admin");
     }
     this.form.valueChanges.subscribe((value) => {
       this.bookInfo = value;
@@ -50,7 +50,7 @@ export class DashboardControllerComponent {
   }
 
   getAllBooks() {
-    this.business.getAllBooks().subscribe(
+    this.business.getAllBooks(null, null).subscribe(
       (data) => {
         console.log(data.length, " all books lenght");
         this.totalBooks = ++data.length; // start from 0

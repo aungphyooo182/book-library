@@ -2,7 +2,7 @@ import { InjectionToken } from "@angular/core";
 import { Observable } from "rxjs";
 
 export interface DataRequirements {
-  getAllBooks(): Observable<any>;
+  getAllBooks(limit, skip): Observable<any>;
   getBook(id): Observable<any>;
   getBooksByAuthor(author): Observable<any>;
   getBooksByName(name): Observable<any>;

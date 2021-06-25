@@ -7,7 +7,7 @@ export class BusinessLogicRequirementsFake
   registerBook(book): Observable<any> {
     return of(true);
   }
-  getAllBooks(): Observable<any> {
+  getAllBooks(limit, skip): Observable<any> {
     return of(true);
   }
   getAlphabetBooks(alphabet): Observable<any> {

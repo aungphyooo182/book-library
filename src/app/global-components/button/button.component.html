@@ -1,5 +1,5 @@
 <button
-  [class]="loading ? 'btn-disable' : class"
+  [class]="loading ? 'btn-disable ' + class : class"
   (click)="onButtonClick($event)"
 >
   <ng-content></ng-content>

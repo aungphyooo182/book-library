@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 
 export interface BusinessLogicRequirements {
   registerBook(book): Observable<any>;
-  getAllBooks(): Observable<any>;
+  getAllBooks(limit, skip): Observable<any>;
   getAlphabetBooks(alphabet): Observable<any>;
   getBook(id): Observable<any>;
   updateBook(book): Observable<any>;

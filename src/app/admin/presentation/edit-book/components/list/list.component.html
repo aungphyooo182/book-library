@@ -15,6 +15,9 @@
     <td>{{ book.libraryNo }}</td>
     <td>{{ book.shelfNo }}</td>
     <td>{{ book.status == 1 ? "မရှိ" : "ရှိ" }}</td>
-    <td (click)="edit(book.id)">ပြင်ဆင်မည်</td>
+    <td style="font-size: 10px" (click)="edit(book.id)">ပြင်ဆင်မည်</td>
   </tr>
 </table>
+<app-button *ngIf="!endPage" [class]="'load-more'" (click)="loadmore()">{{
+  loadmoreText
+}}</app-button>

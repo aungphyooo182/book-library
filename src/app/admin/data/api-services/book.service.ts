@@ -20,8 +20,8 @@ export class BookService {
     );
   }
 
-  getAllBooks() {
-    let url = this.baseUrl + "/api/book";
+  getAllBooks(limit, skip) {
+    let url = this.baseUrl + "/api/book?limit=" + limit + "&skip=" + skip;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;

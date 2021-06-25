@@ -13,15 +13,22 @@
         <app-text [class]="'book-status'"
           >({{ item.status == 1 ? availableText : nonAvailableText }})</app-text
         >
-        <app-text [class]="'show-detail'" (click)="showDetail(item.id)">{{
-          showDetailText
-        }}</app-text>
+        <app-text
+          [class]="'show-detail cursor'"
+          (click)="showDetail(item.id)"
+          >{{ showDetailText }}</app-text
+        >
       </div>
     </ng-container>
   </div>
-  <!-- <div class="load-more" *ngIf="!loading">
-    <app-button [class]="'load-more'">{{ loadmoreText }}</app-button>
-  </div> -->
+  <div class="load-more" *ngIf="!loading && !endPage">
+    <app-button
+      [class]="'load-more'"
+      (btnClick)="getAllBooks()"
+      [loading]="btnLoading"
+      >{{ btnLoading ? loadingText : loadmoreText }}</app-button
+    >
+  </div>
 </ng-container>
 
 <div class="no-result" *ngIf="noResult && !loading">

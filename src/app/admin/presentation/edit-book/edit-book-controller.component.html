@@ -1,8 +1,10 @@
 <app-loading *ngIf="loading"></app-loading>
 <app-list
-  *ngIf="!editView"
+  *ngIf="!editView && list"
   [list]="list"
+  [endPage]="endPage"
   (listClicked)="edit($event)"
+  (btnClicked)="getAllBooks()"
 ></app-list>
 <app-detail
   *ngIf="editView"

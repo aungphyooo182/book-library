@@ -14,7 +14,7 @@ export class GetAllBooksUseCase {
     private mapper: BookMapper
   ) {}
 
-  run() {
-    return this.data.getAllBooks().pipe(this.mapper.map);
+  run(limit, skip) {
+    return this.data.getAllBooks(limit, skip).pipe(this.mapper.map);
   }
 }

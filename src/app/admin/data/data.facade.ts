@@ -12,8 +12,8 @@ export class DataFacade implements DataRequirements {
   registerBook(book) {
     return this.bookApi.registerBook(book);
   }
-  getAllBooks() {
-    return this.bookApi.getAllBooks();
+  getAllBooks(limit, skip) {
+    return this.bookApi.getAllBooks(limit, skip);
   }
   getAlphabetBooks(alphabet) {
     return this.bookApi.getAlphabetBooks(alphabet);

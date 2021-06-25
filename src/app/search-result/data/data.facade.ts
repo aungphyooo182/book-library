@@ -10,8 +10,8 @@ import { Observable } from "rxjs";
 export class DataFacade implements DataRequirements {
   constructor(private bookApi: BookService) {}
 
-  getAllBooks() {
-    return this.bookApi.getAllBooks();
+  getAllBooks(limit, skip) {
+    return this.bookApi.getAllBooks(limit, skip);
   }
 
   getBook(id) {

@@ -10,8 +10,9 @@ export class BookService {
   constructor(private http: HttpClient) {}
   public baseUrl = environment.baseUrl;
 
-  getAllBooks() {
-    let url = this.baseUrl + "/api/book";
+  getAllBooks(limit, skip) {
+    console.log(limit, skip, " limit skip");
+    let url = this.baseUrl + "/api/book?limit=" + limit + "&skip=" + skip;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;

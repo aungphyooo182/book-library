@@ -58,6 +58,8 @@ export class BookDetailControllerComponent {
   }
 
   list() {
+    localStorage.removeItem("author");
+    localStorage.removeItem("name");
     this.router.navigateByUrl("/list");
   }
 }

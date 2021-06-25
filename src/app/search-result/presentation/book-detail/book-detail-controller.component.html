@@ -3,20 +3,24 @@
   <app-button [class]="'back'" (btnClick)="list()">{{ listText }}</app-button>
 </div>
 <div class="detail-wrapper" *ngIf="!loading">
-  <app-text [class]="'book-title'" style="margin-bottom: 24px">{{
-    book.name
-  }}</app-text>
+  <div class="detail-book">
+    <app-text [class]="'book-title'" style="margin-bottom: 24px">{{
+      book.name
+    }}</app-text>
 
-  <app-image
-    [src]="book.src"
-    [class]="'book-image'"
-    style="margin-bottom: 24px"
-  ></app-image>
-  <app-text [class]="'book-author'">{{ author }} : {{ book.author }}</app-text>
-  <app-text [class]="'book-author'"
-    >{{ publisher }} : {{ book.publisher }}</app-text
-  >
-  <app-text [class]="'book-author'"
-    >{{ status }} : {{ book.status == 1 ? yes : no }}</app-text
-  >
+    <app-image
+      [src]="book.src"
+      [class]="'book-image'"
+      style="margin-bottom: 24px"
+    ></app-image>
+    <app-text [class]="'book-author'"
+      >{{ author }} : {{ book.author }}</app-text
+    >
+    <app-text [class]="'book-author'"
+      >{{ publisher }} : {{ book.publisher }}</app-text
+    >
+    <app-text [class]="'book-author'"
+      >{{ status }} : {{ book.status == 1 ? yes : no }}</app-text
+    >
+  </div>
 </div>

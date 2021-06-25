@@ -35,9 +35,16 @@ export class BookListControllerComponent {
   public backText = "နောက်သို့ပြန်သွားမည်";
   public showDetailText = "အသေးစိတ်ကြည့်ရန်";
   public noResultText = "ရှာမတွေ့ပါ";
+  public loadingText = "ရှာဖွေနေသည်";
   public noResult = false;
   public author;
   public name;
+
+  public limit = 10;
+  public pageDefault = 10;
+  public pageCount = 0;
+  public endPage = false;
+  public btnLoading = false;
 
   ngOnInit() {
     // this.route.queryParams.subscribe((params) => {
@@ -108,19 +115,29 @@ export class BookListControllerComponent {
   }
 
   getAllBooks() {
-    this.loading = true;
-    this.business.getAllBooks().subscribe(
-      (data) => {
-        console.log(data);
-        this.list = data;
-        this.loading = false;
-      },
-      (err) => {
-        console.error(err);
-        this.noResult = true;
-        this.loading = false;
-      }
-    );
+    if (this.pageCount == 0) this.loading = true;
+    else this.btnLoading = true;
+    this.business
+      .getAllBooks(this.limit, this.pageDefault * this.pageCount)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          if (data.length > 0) {
+            this.list = this.list.concat(data);
+            this.pageCount++;
+          } else {
+            this.endPage = true;
+          }
+          this.loading = false;
+          this.btnLoading = false;
+        },
+        (err) => {
+          console.error(err);
+          this.noResult = true;
+          this.loading = false;
+          this.btnLoading = false;
+        }
+      );
   }
 
   showDetail(id) {

@@ -6,6 +6,7 @@ button {
 
 .btn-disable {
   cursor: not-allowed;
+  background: grey !important;
 }
 
 .search-btn {
@@ -29,9 +30,11 @@ button {
 }
 
 .back {
+  margin-top: 12px;
   border: 1px solid #198754;
-  height: 56px;
-  padding: 0px 24px;
+  height: 36px;
+  padding: 0px 12px;
   border-radius: 30px;
   color: black;
+  font-size: 12px;
 }

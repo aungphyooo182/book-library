@@ -34,8 +34,8 @@ export class BusinessLogicFacade implements BusinessLogicRequirements {
     return this.registerBookUseCase.run(book);
   }
 
-  getAllBooks(): Observable<any> {
-    return this.getAllBooksUseCase.run();
+  getAllBooks(limit, skip): Observable<any> {
+    return this.getAllBooksUseCase.run(limit, skip);
   }
 
   getAlphabetBooks(alphabet): Observable<any> {

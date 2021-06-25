@@ -5,7 +5,7 @@ export class DataRequirementsFake implements DataRequirements {
   registerBook(book): Observable<any> {
     return of(true);
   }
-  getAllBooks(): Observable<any> {
+  getAllBooks(limit, skip): Observable<any> {
     return of(true);
   }
   getAlphabetBooks(alphabet): Observable<any> {

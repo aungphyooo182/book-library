@@ -30,9 +30,9 @@ export class BusinessLogicFacade implements BusinessLogicRequirements {
     private getBooksByDetailUseCase: GetBooksByDetailUseCase
   ) {}
 
-  getAllBooks(): Observable<any> {
+  getAllBooks(limit, skip): Observable<any> {
     // return of(true);
-    return this.getAllBooksUseCase.run();
+    return this.getAllBooksUseCase.run(limit, skip);
   }
 
   getBook(id): Observable<any> {

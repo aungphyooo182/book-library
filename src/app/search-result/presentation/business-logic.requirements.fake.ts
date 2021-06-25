@@ -4,7 +4,7 @@ import { BusinessLogicRequirements } from "./business-logic.requirements";
 export class BusinessLogicRequirementsFake
   implements BusinessLogicRequirements
 {
-  getAllBooks(): Observable<any> {
+  getAllBooks(limit, skip): Observable<any> {
     return of(true);
   }
   getBook(id): Observable<any> {

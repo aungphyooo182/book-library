@@ -2,7 +2,7 @@ import { Observable, of } from "rxjs";
 import { DataRequirements } from "./data.requirements";
 
 export class DataRequirementsFake implements DataRequirements {
-  getAllBooks(): Observable<any> {
+  getAllBooks(limit, skip): Observable<any> {
     return of(true);
   }
   getBook(id): Observable<any> {

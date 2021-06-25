@@ -1,13 +1,13 @@
 .dashboard-wrapper {
+  margin-top: 24px;
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .form-div {
-  max-width: 310px;
+  max-width: 768px;
   padding: 30px;
   border-radius: 30px;
   height: auto;
