@@ -11,7 +11,10 @@ export class BookService {
   public baseUrl = environment.baseUrl;
 
   registerBook(book) {
-    let url = this.baseUrl + "/api/book/register";
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/register";
+    else url = this.baseUrl + "/api/book/register";
     return this.http.post(url, book).pipe(
       map((res: Response) => {
         let result = res;
@@ -21,7 +24,10 @@ export class BookService {
   }
 
   getAllBooks(limit, skip) {
-    let url = this.baseUrl + "/api/book?limit=" + limit + "&skip=" + skip;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook?limit=" + limit + "&skip=" + skip;
+    else url = this.baseUrl + "/api/book?limit=" + limit + "&skip=" + skip;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;
@@ -31,7 +37,10 @@ export class BookService {
   }
 
   getAlphabetBooks(alphabet) {
-    let url = this.baseUrl + "/api/book/alphabet/" + alphabet;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/alphabet/" + alphabet;
+    else url = this.baseUrl + "/api/book/alphabet/" + alphabet;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;
@@ -41,7 +50,10 @@ export class BookService {
   }
 
   getBook(id) {
-    let url = this.baseUrl + "/api/book/" + id;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/" + id;
+    else url = this.baseUrl + "/api/book/" + id;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = [res];
@@ -51,7 +63,10 @@ export class BookService {
   }
 
   updateBook(book) {
-    let url = this.baseUrl + "/api/book/" + book.id;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/" + book.id;
+    else url = this.baseUrl + "/api/book/" + book.id;
     return this.http.patch(url, book).pipe(
       map((res: Response) => {
         let result = res;

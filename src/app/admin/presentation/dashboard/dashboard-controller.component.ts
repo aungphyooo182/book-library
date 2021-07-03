@@ -47,6 +47,7 @@ export class DashboardControllerComponent {
     this.form.valueChanges.subscribe((value) => {
       this.bookInfo = value;
     });
+    localStorage.setItem("type", "library");
   }
 
   getAllBooks() {

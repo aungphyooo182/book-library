@@ -10,6 +10,6 @@ export class AppComponent {
   title = "pages-of-life";
   constructor(private router: Router) {}
   admin() {
-    this.router.navigateByUrl("/dashboard");
+    this.router.navigateByUrl("/admin");
   }
 }

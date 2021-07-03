@@ -1,0 +1,18 @@
+<table id="book-table">
+  <th>စဥ်</th>
+  <th>စာအုပ်အမည်</th>
+  <th>စာရေးသူ</th>
+  <th>စာအုပ်တိုက်အမည်</th>
+  <th>စျေးနှုန်း</th>
+  <th>ပြင်ဆင်မည်</th>
+  <tr *ngFor="let book of list; let index = index">
+    <td>{{ index + 1 }}</td>
+    <td>{{ book.name }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.price }}</td>
+    <td style="font-size: 10px" (click)="edit(book.id)">ပြင်ဆင်မည်</td>
+  </tr>
+</table>
+<app-button *ngIf="!endPage" [class]="'load-more'" (click)="loadmore()">{{
+  loadmoreText
+}}</app-button>

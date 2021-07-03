@@ -1,0 +1,43 @@
+<app-text [class]="'admin'" (click)="edit()">Edit?</app-text>
+<div class="dashboard-wrapper">
+  <form (keyup.enter)="$event.preventDefault(); collectData($event)">
+    <div class="form-div">
+      <app-input
+        [class]="'book-info'"
+        [hint]="nameHint"
+        [type]="'text'"
+        [control]="form.get('name')"
+      ></app-input>
+      <app-input
+        [class]="'book-info'"
+        [hint]="srcHint"
+        [type]="'text'"
+        [control]="form.get('src')"
+      ></app-input>
+      <app-input
+        [class]="'book-info'"
+        [hint]="authorHint"
+        [type]="'text'"
+        [control]="form.get('author')"
+      ></app-input>
+      <app-input
+        [class]="'book-info'"
+        [hint]="publisherHint"
+        [type]="'text'"
+        [control]="form.get('publisher')"
+      ></app-input>
+      <app-input
+        [class]="'book-info'"
+        [hint]="alphabetHint"
+        [type]="'text'"
+        [control]="form.get('alphabet')"
+      ></app-input>
+      <app-input
+        [class]="'book-info'"
+        [hint]="priceHint"
+        [type]="'text'"
+        [control]="form.get('price')"
+      ></app-input>
+    </div>
+  </form>
+</div>

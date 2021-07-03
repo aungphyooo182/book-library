@@ -12,7 +12,10 @@ export class BookService {
 
   getAllBooks(limit, skip) {
     console.log(limit, skip, " limit skip");
-    let url = this.baseUrl + "/api/book?limit=" + limit + "&skip=" + skip;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook?limit=" + limit + "&skip=" + skip;
+    else url = this.baseUrl + "/api/book?limit=" + limit + "&skip=" + skip;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;
@@ -22,7 +25,10 @@ export class BookService {
   }
 
   getBook(id) {
-    let url = this.baseUrl + "/api/book/" + id;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/" + id;
+    else url = this.baseUrl + "/api/book/" + id;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = [res];
@@ -32,7 +38,10 @@ export class BookService {
   }
 
   getBooksByAuthor(author) {
-    let url = this.baseUrl + "/api/book/author/" + author;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/author/" + author;
+    else url = this.baseUrl + "/api/book/author/" + author;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;
@@ -42,7 +51,10 @@ export class BookService {
   }
 
   getBooksByName(name) {
-    let url = this.baseUrl + "/api/book/name/" + name;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/name/" + name;
+    else url = this.baseUrl + "/api/book/name/" + name;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;
@@ -52,12 +64,21 @@ export class BookService {
   }
 
   getBookByDetail(obj) {
-    let url =
-      this.baseUrl +
-      "/api/book/search/detail?author=" +
-      obj.author +
-      "&name=" +
-      obj.name;
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url =
+        this.baseUrl +
+        "/api/salebook/search/detail?author=" +
+        obj.author +
+        "&name=" +
+        obj.name;
+    else
+      url =
+        this.baseUrl +
+        "/api/book/search/detail?author=" +
+        obj.author +
+        "&name=" +
+        obj.name;
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;

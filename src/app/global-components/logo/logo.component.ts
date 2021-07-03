@@ -9,7 +9,7 @@ declare var require: any;
 })
 export class LogoComponent {
   constructor(private store: LogoStore, private router: Router) {}
-  public logosrc = require("src/assets/images/test-logo.svg");
+  public logosrc = require("src/assets/images/pol.png");
   public logoalt = "Logo Image";
 
   clicked() {

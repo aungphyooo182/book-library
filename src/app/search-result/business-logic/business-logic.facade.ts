@@ -9,6 +9,7 @@ import { GetBooksByAuthorUseCase } from "./use-cases/get-books-by-author.use-cas
 import { GetBooksByNameUseCase } from "./use-cases/get-books-by-name.use-case";
 import { GetBooksByDetailUseCase } from "./use-cases/get-books-by-detail.use-case";
 import { BookMapper } from "./mappers/book.mapper";
+import { SaleBookMapper } from "./mappers/salebook.mapper";
 
 @NgModule({
   imports: [DataFacade],
@@ -19,6 +20,7 @@ import { BookMapper } from "./mappers/book.mapper";
       useClass: DataFacade,
     },
     BookMapper,
+    SaleBookMapper,
   ],
 })
 export class BusinessLogicFacade implements BusinessLogicRequirements {

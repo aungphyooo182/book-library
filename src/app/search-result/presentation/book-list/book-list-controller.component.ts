@@ -36,6 +36,7 @@ export class BookListControllerComponent {
   public showDetailText = "အသေးစိတ်ကြည့်ရန်";
   public noResultText = "ရှာမတွေ့ပါ";
   public loadingText = "ရှာဖွေနေသည်";
+
   public noResult = false;
   public author;
   public name;
@@ -46,7 +47,10 @@ export class BookListControllerComponent {
   public endPage = false;
   public btnLoading = false;
 
+  public type = "library";
+
   ngOnInit() {
+    this.type = localStorage.getItem("type");
     // this.route.queryParams.subscribe((params) => {
     this.author = this.shared.getAuthor();
     this.name = this.shared.getName();

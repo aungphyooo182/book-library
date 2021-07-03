@@ -13,3 +13,8 @@
   height: auto;
   background-color: #0f5132;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}

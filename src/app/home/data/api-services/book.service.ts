@@ -11,7 +11,10 @@ export class BookService {
   public baseUrl = environment.baseUrl;
 
   getAuthorList() {
-    let url = this.baseUrl + "/api/book/author/all";
+    let url;
+    if (localStorage.getItem("type") == "sale")
+      url = this.baseUrl + "/api/salebook/author/all";
+    else url = this.baseUrl + "/api/book/author/all";
     return this.http.get(url).pipe(
       map((res: Response) => {
         let result = res;

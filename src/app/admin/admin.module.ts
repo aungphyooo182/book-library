@@ -9,6 +9,8 @@ import { DashboardModule } from "./presentation/dashboard/dashboard.module";
 import { BookService } from "./data/api-services/book.service";
 import { EditBookModule } from "./presentation/edit-book/edit-book.module";
 import { BookMapper } from "./business-logic/mappers/book.mapper";
+import { SaleDashboardModule } from "./presentation/sale-dashboard/sale-dashboard.module";
+import { SaleEditModule } from "./presentation/sale-edit/sale-edit.module";
 
 @NgModule({
   imports: [
@@ -19,6 +21,8 @@ import { BookMapper } from "./business-logic/mappers/book.mapper";
     AdminModule,
     DashboardModule,
     EditBookModule,
+    SaleDashboardModule,
+    SaleEditModule,
   ],
   providers: [
     {

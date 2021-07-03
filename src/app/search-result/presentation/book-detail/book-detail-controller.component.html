@@ -19,8 +19,11 @@
     <app-text [class]="'book-author'"
       >{{ publisher }} : {{ book.publisher }}</app-text
     >
-    <app-text [class]="'book-author'"
+    <app-text [class]="'book-author'" *ngIf="type == 'library'"
       >{{ status }} : {{ book.status == 1 ? yes : no }}</app-text
+    >
+    <app-text [class]="'book-author'" *ngIf="type != 'library'"
+      >{{ price }} : {{ book.price }}</app-text
     >
   </div>
 </div>

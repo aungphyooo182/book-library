@@ -1,4 +1,4 @@
-<div class="admin-wrapper">
+<div class="admin-wrapper" *ngIf="!authenticated">
   <form (keyup.enter)="$event.preventDefault(); onLogin($event)">
     <div class="form-div">
       <app-input
@@ -15,4 +15,18 @@
       ></app-input>
     </div>
   </form>
+</div>
+
+<div class="wrapper" *ngIf="authenticated">
+  <div class="btn" style="margin-top: 12px">
+    <app-button [class]="'search-btn'" (btnClick)="clickLibrary()">
+      <app-text>{{ library }}</app-text>
+    </app-button>
+  </div>
+
+  <div class="btn" style="margin-top: 12px">
+    <app-button [class]="'search-btn'" (btnClick)="clickSale()">
+      <app-text>{{ sale }}</app-text>
+    </app-button>
+  </div>
 </div>

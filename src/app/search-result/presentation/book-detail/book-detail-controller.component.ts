@@ -31,10 +31,13 @@ export class BookDetailControllerComponent {
   public status = "ငှားရမ်းနိုင်မှုအခြေအနေ";
   public yes = "ငှားရမ်းနိုင်ပါသည်";
   public no = "တခြားသူမှ ငှားရမ်းထားပါသည်";
+  public price = "စျေးနှုန်း";
 
   public listText = "စာအုပ်အားလုံး";
+  public type = "library";
 
   ngOnInit() {
+    this.type = localStorage.getItem("type");
     this.loading = true;
     this.route.params.subscribe((params) => {
       this.bookId = params.id;

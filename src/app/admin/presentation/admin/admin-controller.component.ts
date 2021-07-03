@@ -29,8 +29,17 @@ export class AdminControllerComponent {
   public passwordHint = "password";
 
   public admin;
+  public authenticated = false;
+  public library = "အငှားစာရင်းထည့်ရန်";
+  public sale = "အရောင်းစာရင်းထည့်ရန်";
 
   ngOnInit() {
+    if (!localStorage.getItem("admin") && !localStorage.getItem("password")) {
+      // this.router.navigateByUrl("/admin");
+      this.authenticated = false;
+    } else {
+      this.authenticated = true;
+    }
     this.form.valueChanges.subscribe((value) => {
       this.admin = value;
     });
@@ -41,7 +50,16 @@ export class AdminControllerComponent {
     if (this.admin.username == "admin" && this.admin.password == "password") {
       localStorage.setItem("admin", btoa(this.admin.username));
       localStorage.setItem("password", btoa(this.admin.password));
-      this.router.navigateByUrl("/dashboard");
+      // this.router.navigateByUrl("/dashboard");
+      this.authenticated = true;
     }
+  }
+
+  clickLibrary() {
+    this.router.navigateByUrl("/dashboard");
+  }
+
+  clickSale() {
+    this.router.navigateByUrl("/sale-dashboard");
   }
 }

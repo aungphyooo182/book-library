@@ -1,0 +1,19 @@
+.dashboard-wrapper {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-div {
+  width: 768px;
+  padding: 30px;
+  border-radius: 30px;
+  height: auto;
+  background-color: #0f5132;
+}
+
+label {
+  color: white;
+}

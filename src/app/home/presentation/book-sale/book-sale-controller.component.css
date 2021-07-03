@@ -1,0 +1,14 @@
+.home-page-wrapper {
+  padding: 12px;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 375px) {
+}

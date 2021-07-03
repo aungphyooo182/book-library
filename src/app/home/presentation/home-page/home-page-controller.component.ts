@@ -36,7 +36,15 @@ export class HomePageControllerComponent {
   public authorName;
   public authorList = [];
 
+  public library = true;
+  public sale = false;
+
   ngOnInit() {
+    localStorage.setItem("type", "library");
+    // setTimeout(() => {
+    //   window.alert("it's time for show!");
+    //   this.ngOnInit();
+    // }, 120000);
     this.form.valueChanges.subscribe((value) => {
       //   console.log(value.bookName, value.authorName);
       this.bookName = value.bookName;

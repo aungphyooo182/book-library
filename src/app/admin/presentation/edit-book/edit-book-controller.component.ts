@@ -36,6 +36,7 @@ export class EditBookControllerComponent {
       this.router.navigateByUrl("");
     } else {
       this.getAllBooks();
+      localStorage.setItem("type", "library");
     }
   }
 
