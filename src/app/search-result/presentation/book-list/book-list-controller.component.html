@@ -17,6 +17,7 @@
           >({{ item.price }})</app-text
         >
         <app-text
+          *ngIf="type == 'library'"
           [class]="'show-detail cursor'"
           (click)="showDetail(item.id)"
           >{{ showDetailText }}</app-text
@@ -24,10 +25,11 @@
       </div>
     </ng-container>
   </div>
-  <div class="load-more" *ngIf="!loading && !endPage">
+
+  <div class="load-more" *ngIf="!loading && !endPage && !hideBtn">
     <app-button
       [class]="'load-more'"
-      (btnClick)="getAllBooks()"
+      (btnClick)="determineFunc()"
       [loading]="btnLoading"
       >{{ btnLoading ? loadingText : loadmoreText }}</app-button
     >

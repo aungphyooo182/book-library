@@ -1,7 +1,11 @@
 <div class="select-wrapper">
   <div class="select-box" (click)="toggleBox()">
     <app-text>{{ hint }}</app-text>
-    <app-image [src]="chevronDownSrc" [alt]="chevronDownAlt"></app-image>
+    <app-image
+      [type]="'icon'"
+      [src]="chevronDownSrc"
+      [alt]="chevronDownAlt"
+    ></app-image>
   </div>
   <div *ngIf="showBox" class="item-box-wrapper">
     <ng-container *ngFor="let item of list">

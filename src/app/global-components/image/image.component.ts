@@ -10,5 +10,11 @@ export class ImageComponent {
   @Input() src;
   @Input() alt;
   @Input() class;
+  @Input() type;
   constructor(private store: ImageStore) {}
+  public defaultImage;
+  ngOnInit() {
+    this.defaultImage =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuS70_V8XORGPmjOWCTXDh1taMvtvv1XO9A&usqp=CAU";
+  }
 }

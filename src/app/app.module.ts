@@ -8,6 +8,7 @@ import { SearchResultFeatureModule } from "./search-result/search-result.module"
 import { AdminFeatureModule } from "./admin/admin.module";
 import { GlobalComponentsModule } from "./global-components/global-components.module";
 import { PdfViewerModule } from "ng2-pdf-viewer";
+import { LazyLoadImageModule } from "ng-lazyload-image";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { PdfViewerModule } from "ng2-pdf-viewer";
     BrowserModule,
     GlobalComponentsModule,
     AppRoutingModule,
+    LazyLoadImageModule,
     // PdfViewerModule,
     HomeFeatureModule,
     SearchResultFeatureModule,

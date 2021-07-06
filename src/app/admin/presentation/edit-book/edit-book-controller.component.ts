@@ -24,8 +24,8 @@ export class EditBookControllerComponent {
   public editView = false;
   public book = new BookModel();
   public loading = false;
-  public limit = 10;
-  public pageDefault = 10;
+  public limit = 100;
+  public pageDefault = 100;
   public pageCount = 0;
   public endPage = false;
 

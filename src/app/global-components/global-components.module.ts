@@ -8,6 +8,7 @@ import { InputComponent } from "./input/input.component";
 import { SelectComponent } from "./select/select.component";
 import { ButtonComponent } from "./button/button.component";
 import { LoadingComponent } from "./loading/loading.component";
+import { LazyLoadImageModule } from "ng-lazyload-image";
 
 const components = [
   TextComponent,
@@ -22,6 +23,6 @@ const components = [
 @NgModule({
   declarations: components,
   exports: components,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, LazyLoadImageModule],
 })
 export class GlobalComponentsModule {}

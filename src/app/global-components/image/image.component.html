@@ -1,1 +1,15 @@
-<img [src]="src" [alt]="alt" [class]="class" />
+<img
+  *ngIf="type == 'logo' || type == 'icon'"
+  [src]="src"
+  [alt]="alt"
+  [class]="class"
+/>
+
+<img
+  *ngIf="type != 'logo' && type != 'icon'"
+  [defaultImage]="defaultImage"
+  [lazyLoad]="src"
+  [useSrcset]="true"
+  [alt]="alt"
+  [class]="class"
+/>

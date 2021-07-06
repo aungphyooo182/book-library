@@ -27,7 +27,7 @@ export class SaleDashboardControllerComponent {
     name: this.fb.control("", [Validators.required]),
     src: this.fb.control(""),
     author: this.fb.control("", [Validators.required]),
-    publisher: this.fb.control("", [Validators.required]),
+    publisher: this.fb.control(""),
     alphabet: this.fb.control("", [Validators.required]),
     price: this.fb.control("", [Validators.required]),
   });
@@ -97,6 +97,9 @@ export class SaleDashboardControllerComponent {
       this.bookInfo.src = this.bookInfo.src
         ? this.bookInfo.src
         : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuS70_V8XORGPmjOWCTXDh1taMvtvv1XO9A&usqp=CAU";
+      this.bookInfo.publisher = this.bookInfo.publisher
+        ? this.bookInfo.publisher
+        : "-";
       this.getAllBooks();
     }
   }

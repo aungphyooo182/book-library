@@ -46,10 +46,12 @@ export class BookListControllerComponent {
   public pageCount = 0;
   public endPage = false;
   public btnLoading = false;
+  public hideBtn = true;
 
   public type = "library";
 
   ngOnInit() {
+    this.hideBtn = true;
     this.type = localStorage.getItem("type");
     // this.route.queryParams.subscribe((params) => {
     this.author = this.shared.getAuthor();
@@ -57,9 +59,13 @@ export class BookListControllerComponent {
     // this.author = params.author;
     // this.name = params.name;
     console.log(this.author, this.name);
+    this.determineFunc();
+    // });
+  }
+
+  determineFunc() {
     if (this.author || this.name) this.searchBooks();
     else this.getAllBooks();
-    // });
   }
 
   searchBooks() {
@@ -119,6 +125,7 @@ export class BookListControllerComponent {
   }
 
   getAllBooks() {
+    this.hideBtn = false;
     if (this.pageCount == 0) this.loading = true;
     else this.btnLoading = true;
     this.business
